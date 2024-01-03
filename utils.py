@@ -2,7 +2,9 @@ import random
 import time
 import pygame
 import math
-from config import screen_size, center_dot_position, background_color, center_dot_color, screen_dots_color, line_draw_color
+from config import screen_size, center_dot_position, background_color, center_dot_color, screen_dots_color, \
+    line_draw_color
+
 
 def create_screen():
     pygame.init()
@@ -11,21 +13,25 @@ def create_screen():
     pygame.display.update()
     return screen
 
+
 def create_center_dot(screen):
     pygame.draw.circle(screen, pygame.Color(center_dot_color), center_dot_position, 10)
     pygame.display.update()
 
+
 def draw_line(screen, end_pos):
-    pygame.draw.circle(screen, pygame.Color(screen_dots_color), end_pos, 5) 
+    pygame.draw.circle(screen, pygame.Color(screen_dots_color), end_pos, 5)
     pygame.draw.line(screen, pygame.Color(line_draw_color), center_dot_position, end_pos, 2)
     pygame.display.update()
     time.sleep(0.1)
 
+
 def distance(point1, point2):
-    return math.sqrt((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2)
+    return math.sqrt((point2[0] - point1[0]) ** 2 + (point2[1] - point1[1]) ** 2)
+
 
 def generate_random_dots(num_dots):
-    max_distance = math.sqrt(screen_size[0]**2 + screen_size[1]**2) / 2
+    max_distance = math.sqrt(screen_size[0] ** 2 + screen_size[1] ** 2) / 2
     distance_increment = max_distance / num_dots
 
     dots = []
@@ -41,6 +47,7 @@ def generate_random_dots(num_dots):
         dots.append((int(x), int(y)))
 
     return dots
+
 
 def draw_dots(screen):
     dots = generate_random_dots(50)
