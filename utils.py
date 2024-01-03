@@ -31,8 +31,6 @@ generates random angles,
 calculates coordinate points incrementally further
 from the center point using trigonometry
 """
-
-
 def _generate_random_dots():
     max_distance = math.sqrt(SCREEN_SIZE[0] ** 2 + SCREEN_SIZE[1] ** 2) / 2
     distance_increment = max_distance / num_dots
