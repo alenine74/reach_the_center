@@ -26,11 +26,6 @@ def _draw_line(screen, end_pos):
     time.sleep(0.1)
 
 
-# def _distance(point1, point2):
-#     """distance calculation with Pythagoras Formula"""
-#     return math.sqrt((point2[0] - point1[0]) ** 2 + (point2[1] - point1[1]) ** 2)
-
-
 """
 generates random angles,
 calculates coordinate points incrementally further
