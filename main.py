@@ -7,8 +7,8 @@ def main():
     screen = create_screen()
     create_center_dot(screen)
     draw_dots(screen)
-    time.sleep(5) 
-    
+    time.sleep(5)
+
     pygame.image.save(screen, "final_image.png")
     print("Image saved as 'final_image.png'.")
 
