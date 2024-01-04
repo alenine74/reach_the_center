@@ -45,10 +45,12 @@ def _generate_path_to_edge(screen):
     line_color = _new_color()
     while not _is_out_of_bounds(current_point):
         angle = random.uniform(0, 2 * math.pi)
-        distance = random.uniform(10, 30)
-        new_x = int(current_point[0] + distance * math.cos(angle))
-        new_y = int(current_point[1] + distance * math.sin(angle))
-        new_point = (new_x, new_y)
+        coefficient = random.uniform(150, 200)
+        new_x = abs(coefficient * math.cos(angle))
+        new_y = abs(coefficient * math.sin(angle))
+        new_point = (random.randint(0, 800), random.randint(0, 800))
+        # print(new_point)
+        # new_point = (new_x, new_y)
         ex_distance = _distance(center_dot_position, current_point)
         new_distance = _distance(center_dot_position, new_point)
         if new_distance > ex_distance:
