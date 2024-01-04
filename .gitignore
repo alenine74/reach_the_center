@@ -3,3 +3,4 @@
 *.png
 *.pyc
 test*
+__pycashe__*
