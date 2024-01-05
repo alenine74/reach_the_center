@@ -17,6 +17,7 @@ def create_screen():
     pygame.init()
     screen = pygame.display.set_mode(screen_size)
     screen.fill(background_color)
+    pygame.display.set_caption("Reach The Edge")
     pygame.display.update()
     _create_center_dot(screen)
     return screen
@@ -38,19 +39,21 @@ def _is_out_of_bounds(point):
     return not (0 <= point[0] < screen_size[0] and 0 <= point[1] < screen_size[1])
 
 
+def _generate_dot(current_point):
+    angle = random.uniform(0, 2 * math.pi)
+    coefficient = random.uniform(15, 40)
+    new_x = int(current_point[0] + coefficient * math.cos(angle))
+    new_y = int(current_point[1] + coefficient * math.sin(angle))
+    return new_x, new_y
+
+
 def _generate_path_to_edge(screen):
     last_point = 0
     current_point = center_dot_position
     dots_count = 0
     line_color = _new_color()
     while not _is_out_of_bounds(current_point):
-        angle = random.uniform(0, 2 * math.pi)
-        coefficient = random.uniform(150, 200)
-        new_x = abs(coefficient * math.cos(angle))
-        new_y = abs(coefficient * math.sin(angle))
-        new_point = (random.randint(0, 800), random.randint(0, 800))
-        # print(new_point)
-        # new_point = (new_x, new_y)
+        new_point = _generate_dot(current_point)
         ex_distance = _distance(center_dot_position, current_point)
         new_distance = _distance(center_dot_position, new_point)
         if new_distance > ex_distance:
